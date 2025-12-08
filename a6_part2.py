@@ -48,7 +48,7 @@ def visualize_features(data):
     fig, axes = plt.subplots(2, 2, figsize=(12, 10))
     
     # TODO: Add a main title: 'House Features vs Price'
-    fig.suptitle('Car Features vs Price', fontsize=16, fontweight='bold')
+    fig.suptitle('House Features vs Price', fontsize=16, fontweight='bold')
     # TODO: Plot 1 (top left): SquareFeet vs Price
     #       - scatter plot, color='blue', alpha=0.6
     #       - labels and title
@@ -80,15 +80,15 @@ def visualize_features(data):
     #       - scatter plot, color='orange', alpha=0.6
     #       - labels and title
     #       - grid
-    axes[0, 1].scatter(data['Age'], data['Price'], color='orange', alpha=0.6)
-    axes[0, 1].set_xlabel('Age (years)')
-    axes[0, 1].set_ylabel('Price ($)')
-    axes[0, 1].set_title('Age vs Price')
-    axes[0, 1].grid(True, alpha=0.6)
+    axes[1, 1].scatter(data['Age'], data['Price'], color='orange', alpha=0.6)
+    axes[1, 1].set_xlabel('Age (years)')
+    axes[1, 1].set_ylabel('Price ($)')
+    axes[1, 1].set_title('Age vs Price')
+    axes[1, 1].grid(True, alpha=0.6)
     # TODO: Use plt.tight_layout() to make plots fit nicely
     plt.tight_layout()
     # TODO: Save the figure as 'feature_plots.png' with dpi=300
-    plt.savefig('car_features.png', dpi=300, bbox_inches='tight')
+    plt.savefig('House_features.png', dpi=300, bbox_inches='tight')
     # TODO: Show the plot
     plt.show()
 
@@ -132,7 +132,7 @@ def split_data(X, y):
         X_train, X_test, y_train, y_test
     """
     # TODO: Split into train (80%) and test (20%) with random_state=42
-    rows = 30 * .80
+    rows = int(30 * .80)
     X_train = X.iloc[:rows]
     X_test = X.iloc[rows:]   
     y_train = y.iloc[:rows]
@@ -283,7 +283,7 @@ if __name__ == "__main__":
     
     # Step 1: Load and explore
     # TODO: Call load_and_explore_data() with 'house_prices.csv'
-    data = load_and_explore_data('car_prices.csv')
+    data = load_and_explore_data('house_prices.csv')
     # Step 2: Visualize features
     # TODO: Call visualize_features() with the data
     visualize_features(data)
